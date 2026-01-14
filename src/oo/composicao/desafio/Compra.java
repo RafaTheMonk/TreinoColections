@@ -4,10 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Compra {
-	List<Item> itens = new ArrayList<>();
+	final List<Item> itens = new ArrayList<>();
 	
-	public Compra(Item item) {
-		this.itens.add(item);
+	void adicionarItem(Produto p, int qtde) {
+		this.itens.add(new Item(qtde, p));
+	}
+	
+	void adicionarItem(String nome, double preco, int qtde) {
+		var produto = new Produto(nome, preco);
+		this.itens.add(new Item(qtde, produto));
 	}
 	
 	public double obterValorTotal() {
